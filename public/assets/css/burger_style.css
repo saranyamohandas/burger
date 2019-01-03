@@ -1,0 +1,38 @@
+body {
+    background-image: url("../images/bgimage.jpg");
+    background-repeat: no-repeat;
+     background-size: cover;
+}
+img {
+    width: 150px;
+    position: absolute;
+    left:45%;
+    top: 5%;
+}
+h1 {
+    color: #97530D;
+    position: absolute;
+    left:41.5%;
+    top: 25%;
+    font-family: 'Pacifico', cursive;
+}
+form {
+    position: absolute;
+    left:39.5%;
+    top: 40%;
+}
+#listBurger {
+    position: absolute;
+    left:30%;
+    top: 30%;
+    font-family: 'Pacifico', cursive;
+}
+span{
+    background-color: aliceblue;
+    margin-right: 15px;
+}
+li{
+  margin: 10px;  
+}
+
+
