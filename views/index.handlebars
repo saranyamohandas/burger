@@ -1,16 +1,42 @@
 <!--<h1>{{hbsObject.burgers.data.id}}</h1>-->
+<div class="head">
+    <img src="/assets/images/clipart-burger.png">
+    <h1>Eat-Da-Burger!</h1>
+</div>
 
-<img src="/assets/images/clipart-burger.png">
-<h1>Eat-Da-Burger!</h1>
-
-<div id="listBurger">
-
-    <ol> 
-     {{#each burgers}}
-      <li><span>{{burger_name}} </span> <button > Devour it!</button></li>
-     {{/each}}
+<form>
+  <div class="text-center">
+      <label>Make your own burger!</label>
+  </div>
+   
+    <input type="text" class="form-control form-control-lg" id="addBurger">
+    <br>
+<!--    <div class="form-group row">-->
+       
+       <div class="text-center">
+          <button type="button" class="btn btn-primary" id="userInp"> Submit </button> 
+          
+       </div>
         
-    </ol>
+<!--    </div>-->
+    
+</form>
+<div class="listBurger">
+<div id="notDevoured">
+
+<div class="card" style="width: 18rem;">
+  <ol class="list-group list-group-flush">
+    {{#each burgers}}
+      {{#unless devoured}}
+        {{>burgers/burger-block }}
+       {{/unless}}
+    {{/each}}
+  </ol>
+     
+</div>
+  
+  
+    
       
 <!--
        {{#each burgers}}
@@ -38,23 +64,20 @@
 <!--         <button > Devour it!</button>-->
       
 </div>
+
+<div id="devoured">
     
+</div>
+</div>
+    
+
     
 
 
 
-<form>
-   
-    <input type="text" class="form-control form-control-lg" id="addBurger">
-    <br>
-    <div class="form-group row">
-       
-       <div class="text-center">
-          <button type="button" class="btn btn-primary"> Submit </button> 
-          <small class="form-text text-muted">Enter the burger you want to eat and click the submit button!</small>
-       </div>
-        
-    </div>
+
+<div>
     
-</form>
+</div>
+
 

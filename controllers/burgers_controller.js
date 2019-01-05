@@ -9,11 +9,39 @@ router.get("/",function(req,res){
         var hbsObject = {
             burgers : data
         };
-        console.log(hbsObject.burgers[0].burger_name);
+        hbsObject.burgers.forEach(function(element){
+            console.log(element.burger_name);
+        })
+        
         
         res.render("index",hbsObject);
     })
 });
+
+router.post("/api/burgers",function(req,res){
+    console.log("req.body.name",req.body.name);
+    burger.insertRows("burger_name",req.body.name,
+                     function(result){
+        res.json({id: result.insertId});
+        console.log("insertid",result.insertId);
+        
+    })
+});
+
+router.put("/api/burgers/:id",function(req,res){
+    console.log("update",req.params.id);
+    var condition = "id = " + req.params.id;
+   // var cols = {req.body}
+    console.log(req.body)
+    burger.updateRows(req.body,condition,function(result){
+        if(result.changedRows == 0){
+          return(result.status(404).end());  
+        } else {
+          res.status(200).end();
+        }
+    })
+});
+
 
 module.exports = router;
 
