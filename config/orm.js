@@ -31,7 +31,7 @@ var orm = {
                                      )
         console.log(query.sql);
     },
-    insertRows : function(table,cols,data,cb){
+    insertOne : function(table,cols,data,cb){
        
         var querystring = "INSERT INTO ??(??) VALUES (?) ";
         console.log("table", table + "cols" ,cols, + "data",data );
@@ -44,7 +44,7 @@ var orm = {
         console.log(query.sql);
         
     },
-    updateRows : function(table,cols,condition,cb){
+    updateOne : function(table,cols,condition,cb){
     var querystring = "UPDATE " + table;
     //SET () WHERE (??)";
     querystring += " SET ";

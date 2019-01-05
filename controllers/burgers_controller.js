@@ -20,7 +20,7 @@ router.get("/",function(req,res){
 
 router.post("/api/burgers",function(req,res){
     console.log("req.body.name",req.body.name);
-    burger.insertRows("burger_name",req.body.name,
+    burger.insertOne("burger_name",req.body.name,
                      function(result){
         res.json({id: result.insertId});
         console.log("insertid",result.insertId);
@@ -33,7 +33,7 @@ router.put("/api/burgers/:id",function(req,res){
     var condition = "id = " + req.params.id;
    // var cols = {req.body}
     console.log(req.body)
-    burger.updateRows(req.body,condition,function(result){
+    burger.updateOne(req.body,condition,function(result){
         if(result.changedRows == 0){
           return(result.status(404).end());  
         } else {
