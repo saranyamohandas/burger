@@ -17,7 +17,7 @@
        9.  ORM - Object Relational Mapping    
        
 
-* This is a basic restaurant app where user can make their own burger and add it to list. 
+* This is a burger app where user can make their own burger and add it to list. 
 
 * There is a form where user can submit their favorite burger.
 
