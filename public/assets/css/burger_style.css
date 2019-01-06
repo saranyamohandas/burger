@@ -33,6 +33,13 @@ h1 {
     top: 400px;
     font-family: 'Pacifico', cursive;
 }
+#devoured {
+    position: absolute;
+    left:60%;
+    top: 400px;
+    font-family: 'Pacifico', cursive;
+    
+}
 form {
     position: absolute;
     top: 300px;
@@ -57,6 +64,10 @@ span{
     right: 30px;
     background-color: #E8A45A;
     
+}
+#myModal{
+    color: #2090B3;
+    font-family: 'Pacifico', cursive;
 }
 
 
