@@ -1,7 +1,7 @@
 var connection = require("../config/connection.js");
 // Object Relational Mapper (ORM)
 
-// Helper function to conver obj to sql
+// Helper function to convert obj to sql
 function objToSql(obj){
     var updateSet = [];
     for(key in obj){
@@ -13,7 +13,7 @@ function objToSql(obj){
     }
     updateSet.push(key + "=" + val);
     }
-    console.log("set",updateSet);
+    
     return(updateSet.toString());
 }
 
@@ -21,32 +21,35 @@ function objToSql(obj){
 var orm = {
     selectAll : function(table,cb){
         var querystring = "SELECT * FROM ?? ";
-        console.log(querystring);
+        
         var query =  connection.query(querystring,[table],function(err,rows){
             if(err) throw err;
-            //console.log(rows);
             cb(rows);
-            //return(rows)
+            
         }
-                                     )
+                                     );
+        console.log("******************************");
         console.log(query.sql);
+        
     },
     insertOne : function(table,cols,data,cb){
        
         var querystring = "INSERT INTO ??(??) VALUES (?) ";
-        console.log("table", table + "cols" ,cols, + "data",data );
+        
         var query =  connection.query(querystring,[table,cols,data],function(err,rows){
             if(err) throw err;
             //console.log(rows);
             cb(rows);
         }
                                      );
+        console.log("******************************");
         console.log(query.sql);
+        
         
     },
     updateOne : function(table,cols,condition,cb){
     var querystring = "UPDATE " + table;
-    //SET () WHERE (??)";
+    
     querystring += " SET ";
     querystring += objToSql(cols);
     querystring += " WHERE ";
@@ -57,15 +60,23 @@ var orm = {
             }
             cb(result);
         }
-                                    )
+                                    );
+        console.log("******************************");
+        console.log(query.sql); 
+        
+},
+    deleteOne : function(table,condition,cb){
+        var queryString = "DELETE FROM " + table;
+        queryString += " WHERE ";
+        queryString += condition;
+        var query = connection.query(queryString,function(err,result){
+            if(err) throw err;
+            cb(result);
+        })
+        console.log("******************************");
         console.log(query.sql);
-    
-    
-       
-        //console.log("table", table + "cols" ,cols, + "data",data ); 
+        
 }
-    
-    
     
 };
 

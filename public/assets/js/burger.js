@@ -20,17 +20,34 @@ $(document).ready(function(){
     });
 
     $(".devourBtn").click(function(){
-        var getId = $(this).attr("data-id");
+        var dataState = $(this).attr("data-state");
+        if(dataState == 0) {
+            var getId = $(this).attr("data-id");
+            $.ajax("/api/burgers/" + getId,{
+                type: "PUT",
+                data : {devoured : true}
+            }).then(function(){
+                location.reload();
+            })
+            console.log("devoured" ,getId);
+        }
         
-        $.ajax("api/burgers/" + getId,{
-            type: "PUT",
-            data : {devoured : true}
-        }).then(function(){
-            location.reload();
-        })
-        console.log("devoured" ,getId);
         
     });
+    $(".devourBtn").click(function(){
+        var dataState = $(this).attr("data-state");
+        
+        if(dataState == 1) {
+            var getId = $(this).attr("data-id");
+            $.ajax("/api/burgers",{
+                type: "DELETE",
+                data: {id: getId}
+            }).then(function(){
+                location.reload();
+                console.log("Burger ditched!")
+            })
+        }
+    })
     
     
 });
