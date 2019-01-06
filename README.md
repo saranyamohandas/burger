@@ -23,7 +23,7 @@
 
 * After submitting the form, the new item is added to database.
 
-* App displays two list for user. One available items for user to devour and devoured item that cdan be deleted by user.
+* App displays two list for user. One available items for user to devour and devoured item that can be deleted by user.
 
 * When User devours an item, the item gets updated in the database and not available further for the user.
 
