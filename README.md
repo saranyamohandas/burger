@@ -23,9 +23,11 @@
 
 * After submitting the form, the new item is added to database.
 
-* In the UI, list is displayed and user can devour it. When User devour an item, the item gets updated in the database and not available for further for the user.
+* App displays two list for user. One available items for user to devour and devoured item that cdan be deleted by user.
 
-* Devoured item appears on another list where User can delete it from UI and database.
+* When User devours an item, the item gets updated in the database and not available further for the user.
+
+* Devoured item appears on another list where User can delete it from UI and the item is deleted from database as well.
 
  
 * Below is the snapshot of the application -
